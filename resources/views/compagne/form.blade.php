@@ -51,6 +51,7 @@
 										<div class="col-md-8">
 										  <input  type='text' name='Raison_social' id='Raison_social' value='{{ $row['Raison_social'] }}' 
 						     class='form-control form-control-sm ' /> 
+							 <h1>mm</h1>
 										 </div> 
 										 
 									  </div> 					
