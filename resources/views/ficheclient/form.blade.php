@@ -8,7 +8,7 @@
 	<div class="card-body">
 
 
-	{!! Form::open(array('url'=>'tierscrediteurs?return='.$return, 'class'=>'form-horizontal  validated sximo-form','files' => true ,'id'=> 'FormTable' )) !!}
+	{!! Form::open(array('url'=>'ficheclient?return='.$return, 'class'=>'form-horizontal  validated sximo-form','files' => true ,'id'=> 'FormTable' )) !!}
 	<div class="toolbar-nav">
 		<div class="row">
 			<div class="col-md-6 " >
@@ -36,42 +36,12 @@
 	</ul>		
 	<div class="">
 		<div class="col-md-12">
-						<fieldset><legend> tiers crediteurs</legend>
-				{!! Form::hidden('id', $row['id']) !!}					
+						<fieldset><legend> fiche client</legend>
+				{!! Form::hidden('code_client', $row['code_client']) !!}					
 									  <div class="form-group row  " >
-										<label for="Organisme" class=" control-label col-md-4 "> Organisme <span class="asterix"> * </span></label>
+										<label for="Raison Social" class=" control-label col-md-4 "> Raison Social <span class="asterix"> * </span></label>
 										<div class="col-md-8">
-										  
-					
-					<input type='radio' name='organisme' value ='societe'  @if($row['organisme'] == 'societe') checked="checked" @endif class='filled-in' id='organisme-0' onclick ="enable()"> <label for='organisme-0'>Societe </label>
-					
-					<input type='radio' name='organisme' value ='personne physique'  @if($row['organisme'] == 'personne physique') checked="checked" @endif class='filled-in' id='organisme-1'> <label for='organisme-1' onclick ="enable" >Personne physique </label> 
-										 </div> 
-										 
-									  </div> 				
-									  <div class="form-group row  " >
-										<label for="Personne Physique" class=" control-label col-md-4 "> Personne Physique <span class="asterix"> * </span></label>
-										<div class="col-md-8">
-										  
-					
-					<input type='radio' name='personne_physique' value ='patenter'  @if($row['personne_physique'] == 'patenter') checked="checked" @endif class='filled-in' id='personne_physique-0'  style="display:none"> <label for='personne_physique-0'>Patenter </label>
-					
-					<input type='radio' name='personne_physique' value ='non patenter'  @if($row['personne_physique'] == 'non patenter') checked="checked" @endif class='filled-in' id='personne_physique-1' > <label for='personne_physique-1' >Non Patenter </label> 
-										 </div> 
-										 
-									  </div> 				
-									  <div class="form-group row  " >
-										<label for="Code" class=" control-label col-md-4 "> Code <span class="asterix"> * </span></label>
-										<div class="col-md-8">
-										  <input  type='text' name='code' id='code' value='{{ $row['code'] }}' 
-						required     class='form-control form-control-sm ' /> 
-										 </div> 
-										 
-									  </div> 					
-									  <div class="form-group row  " >
-										<label for="Titre De Compte" class=" control-label col-md-4 "> Titre De Compte <span class="asterix"> * </span></label>
-										<div class="col-md-8">
-										  <input  type='text' name='titre_de_compte' id='titre_de_compte' value='{{ $row['titre_de_compte'] }}' 
+										  <input  type='text' name='raison_social' id='raison_social' value='{{ $row['raison_social'] }}' 
 						required     class='form-control form-control-sm ' /> 
 										 </div> 
 										 
@@ -101,22 +71,6 @@
 										 
 									  </div> 					
 									  <div class="form-group row  " >
-										<label for="Region" class=" control-label col-md-4 "> Region <span class="asterix"> * </span></label>
-										<div class="col-md-8">
-										  <input  type='text' name='region' id='region' value='{{ $row['region'] }}' 
-						required     class='form-control form-control-sm ' /> 
-										 </div> 
-										 
-									  </div> 					
-									  <div class="form-group row  " >
-										<label for="Email" class=" control-label col-md-4 "> Email <span class="asterix"> * </span></label>
-										<div class="col-md-8">
-										  <input  type='text' name='email' id='email' value='{{ $row['email'] }}' 
-						required     class='form-control form-control-sm ' /> 
-										 </div> 
-										 
-									  </div> 					
-									  <div class="form-group row  " >
 										<label for="Matricule Fiscale" class=" control-label col-md-4 "> Matricule Fiscale <span class="asterix"> * </span></label>
 										<div class="col-md-8">
 										  <input  type='text' name='matricule_fiscale' id='matricule_fiscale' value='{{ $row['matricule_fiscale'] }}' 
@@ -125,25 +79,73 @@
 										 
 									  </div> 					
 									  <div class="form-group row  " >
-										<label for="Rc" class=" control-label col-md-4 "> Rc <span class="asterix"> * </span></label>
+										<label for="Registre Rc" class=" control-label col-md-4 "> Registre Rc <span class="asterix"> * </span></label>
 										<div class="col-md-8">
-										  <input  type='text' name='rc' id='rc' value='{{ $row['rc'] }}' 
+										  <input  type='text' name='registre_rc' id='registre_rc' value='{{ $row['registre_rc'] }}' 
 						required     class='form-control form-control-sm ' /> 
 										 </div> 
 										 
 									  </div> 					
 									  <div class="form-group row  " >
-										<label for="Nom Du Responsable" class=" control-label col-md-4 "> Nom Du Responsable <span class="asterix"> * </span></label>
+										<label for="Adressee" class=" control-label col-md-4 "> Adressee <span class="asterix"> * </span></label>
 										<div class="col-md-8">
-										  <input  type='text' name='nom_du_responsable' id='nom_du_responsable' value='{{ $row['nom_du_responsable'] }}' 
+										  <input  type='text' name='adressee' id='adressee' value='{{ $row['adressee'] }}' 
 						required     class='form-control form-control-sm ' /> 
 										 </div> 
 										 
 									  </div> 					
 									  <div class="form-group row  " >
-										<label for="Fonction" class=" control-label col-md-4 "> Fonction <span class="asterix"> * </span></label>
+										<label for="Region" class=" control-label col-md-4 "> Region <span class="asterix"> * </span></label>
 										<div class="col-md-8">
-										  <input  type='text' name='fonction' id='fonction' value='{{ $row['fonction'] }}' 
+										  <input  type='text' name='region' id='region' value='{{ $row['region'] }}' 
+						required     class='form-control form-control-sm ' /> 
+										 </div> 
+										 
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Delegation" class=" control-label col-md-4 "> Delegation <span class="asterix"> * </span></label>
+										<div class="col-md-8">
+										  <input  type='text' name='delegation' id='delegation' value='{{ $row['delegation'] }}' 
+						required     class='form-control form-control-sm ' /> 
+										 </div> 
+										 
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Commercial" class=" control-label col-md-4 "> Commercial <span class="asterix"> * </span></label>
+										<div class="col-md-8">
+										  <input  type='text' name='commercial' id='commercial' value='{{ $row['commercial'] }}' 
+						required     class='form-control form-control-sm ' /> 
+										 </div> 
+										 
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Localite" class=" control-label col-md-4 "> Localite <span class="asterix"> * </span></label>
+										<div class="col-md-8">
+										  <input  type='text' name='localite' id='localite' value='{{ $row['localite'] }}' 
+						required     class='form-control form-control-sm ' /> 
+										 </div> 
+										 
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Code Postal" class=" control-label col-md-4 "> Code Postal <span class="asterix"> * </span></label>
+										<div class="col-md-8">
+										  <input  type='text' name='code_postal' id='code_postal' value='{{ $row['code_postal'] }}' 
+						required     class='form-control form-control-sm ' /> 
+										 </div> 
+										 
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Agence" class=" control-label col-md-4 "> Agence <span class="asterix"> * </span></label>
+										<div class="col-md-8">
+										  <input  type='text' name='agence' id='agence' value='{{ $row['agence'] }}' 
+						required     class='form-control form-control-sm ' /> 
+										 </div> 
+										 
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Rib" class=" control-label col-md-4 "> Rib <span class="asterix"> * </span></label>
+										<div class="col-md-8">
+										  <input  type='text' name='rib' id='rib' value='{{ $row['rib'] }}' 
 						required     class='form-control form-control-sm ' /> 
 										 </div> 
 										 
@@ -172,6 +174,30 @@
 						required     class='form-control form-control-sm ' /> 
 										 </div> 
 										 
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Tel Inter" class=" control-label col-md-4 "> Tel Inter <span class="asterix"> * </span></label>
+										<div class="col-md-8">
+										  <input  type='text' name='tel_inter' id='tel_inter' value='{{ $row['tel_inter'] }}' 
+						required     class='form-control form-control-sm ' /> 
+										 </div> 
+										 
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Nom De Responsable" class=" control-label col-md-4 "> Nom De Responsable <span class="asterix"> * </span></label>
+										<div class="col-md-8">
+										  <input  type='text' name='nom_de_responsable' id='nom_de_responsable' value='{{ $row['nom_de_responsable'] }}' 
+						required     class='form-control form-control-sm ' /> 
+										 </div> 
+										 
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Cin Resp" class=" control-label col-md-4 "> Cin Resp <span class="asterix"> * </span></label>
+										<div class="col-md-8">
+										  <input  type='text' name='cin_resp' id='cin_resp' value='{{ $row['cin_resp'] }}' 
+						required     class='form-control form-control-sm ' /> 
+										 </div> 
+										 
 									  </div> </fieldset></div>
 
 	</div>
@@ -189,7 +215,7 @@
 		 	 
 
 		$('.removeMultiFiles').on('click',function(){
-			var removeUrl = '{{ url("tierscrediteurs/removefiles?file=")}}'+$(this).attr('url');
+			var removeUrl = '{{ url("ficheclient/removefiles?file=")}}'+$(this).attr('url');
 			$(this).parent().remove();
 			$.get(removeUrl,function(response){});
 			$(this).parent('div').empty();	
@@ -197,22 +223,5 @@
 		});		
 		
 	});
-	function enable(){
-		var check=document.getElementById("organisme-0");
-		var check1=document.getElementById("organisme-1");
-
-		var btn1=document.getElementById("personne_physique-0");
-		var btn2=document.getElementById("personne_physique-1");
-
-		if(check.checked){
-			btn1.disabled="true";
-			btn2.disabled="true";
-
-		}else if(check1.checked) {
-			
-			document.getElementById("personne_physique-0").style.display='block';
-
-		}
-	}
 	</script>		 
 @stop

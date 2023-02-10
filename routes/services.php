@@ -39,4 +39,29 @@ Route::resource('services/tierscrediteurs','Services\TierscrediteursController')
 Route::resource('services/gestionmachinedeproduction','Services\GestionmachinedeproductionController');
 // End Routes for gestionmachinedeproduction 
 
+                    
+// Start Routes for ficheclient 
+Route::resource('services/ficheclient','Services\FicheclientController');
+// End Routes for ficheclient 
+
+                    
+// Start Routes for receptionolive 
+Route::resource('services/receptionolive','Services\ReceptionoliveController');
+// End Routes for receptionolive 
+
+                    
+// Start Routes for service 
+Route::resource('services/service','Services\ServiceController');
+// End Routes for service 
+
+                    
+// Start Routes for achat 
+Route::resource('services/achat','Services\AchatController');
+// End Routes for achat 
+
+                    
+// Start Routes for gestionlotolive 
+Route::resource('services/gestionlotolive','Services\GestionlotoliveController');
+// End Routes for gestionlotolive 
+
                     ?>

@@ -14,6 +14,10 @@ class MenuController extends Controller {
 		parent::__construct();
         $this->middleware(function ($request, $next) {           
             if(session('gid') !='1')
+
+
+
+			
                 return redirect('dashboard')
                 ->with('message','You Dont Have Access to Page !')->with('status','error');            
             return $next($request);

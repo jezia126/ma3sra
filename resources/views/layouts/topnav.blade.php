@@ -10,7 +10,7 @@
                             @if(file_exists(public_path().'/uploads/images/'.config('sximo')['cnf_logo']) && config('sximo')['cnf_logo'] !='')
                               <img src="{{ asset('uploads/images/'.config('sximo')['cnf_logo'])}}" alt="{{ config('sximo')['cnf_appname'] }}" width="40" />
                             @else
-                              <img src="{{ asset('')}}assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                              <img src="{{ asset('')}}assets/images/backend-logo.png" alt="homepage" class="dark-logo" />
                             @endif
 
                         </b>
