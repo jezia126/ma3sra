@@ -20,7 +20,7 @@ class tierscrediteurs extends Sximo  {
 
 	public static function queryWhere(  ){
 		
-		return " WHERE tb_tiers_crediteur.id IS NOT NULL ";
+		return " WHERE tb_tiers_crediteur.id IS NOT NULL AND tb_tiers_crediteur.m_id=".session('mid');
 	}
 	
 	public static function queryGroup(){

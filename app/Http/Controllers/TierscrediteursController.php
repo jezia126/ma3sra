@@ -28,7 +28,22 @@ class TierscrediteursController extends Controller {
 		);
 		
 	}
+	public function gettiers($id){
+		$tierscrediteurs=Tierscrediteurs::find($id);
+		if(is_null($tierscrediteurs)){
+			return response()->json(['message' => 'tiers introuvable']);
 
+		}
+		return response()->json(Tierscrediteurs::find($id),200);
+
+	}
+	
+	/*
+	public function gettiers()
+	{
+		$tierscrediteurs=Tierscrediteurs::all()->toArray();
+return array_reverse($tierscrediteurs);
+	}*/
 	public function index( Request $request )
 	{
 		// Make Sure users Logged 
@@ -110,6 +125,7 @@ class TierscrediteursController extends Controller {
 				if ($validator->passes()) 
 				{
 					$data = $this->validatePost( $request );
+					$data["m_id"]=session("mid");
 					$id = $this->model->insertRow($data , $request->input( $this->info['key']));
 					
 					/* Insert logs */

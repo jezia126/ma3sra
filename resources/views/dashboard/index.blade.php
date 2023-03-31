@@ -2,8 +2,16 @@
 
 
 @section('content')
+
+<style>
+   div.h2{
+    text-align: right;
+   }
+    </style>
 <div class="page-titles">
   <h2> {{ $pageTitle }} <small> {{ $pageNote }} </small></h2>
+  <?php $masraid=session('mid');
+echo $masraid; ?>
 </div>
 
 <div class="  ">

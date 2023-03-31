@@ -15,12 +15,12 @@ class receptionolive extends Sximo  {
 
 	public static function querySelect(  ){
 		
-		return "  SELECT tb_reception_olive.* FROM tb_reception_olive  ";
+		return " SELECT tb_reception_olive.* FROM tb_reception_olive ";
 	}	
 
 	public static function queryWhere(  ){
 		
-		return "  WHERE tb_reception_olive.id IS NOT NULL ";
+		return " WHERE tb_reception_olive.id IS NOT NULL AND tb_reception_olive.m_id=".session('mid');
 	}
 	
 	public static function queryGroup(){

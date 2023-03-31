@@ -1,8 +1,10 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\societe;
 use App\User;
 use App\Libary\SiteHelpers;
+use Illuminate\Support\Facades\DB;
 use Socialize;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
@@ -40,6 +42,13 @@ class UserController extends Controller {
 			'firstname'=>'required|alpha_num|min:2',
 			'lastname'=>'required|alpha_num|min:2',
 			'email'=>'required|email|unique:tb_users',
+			'tel'=>'required|alpha_num|min:2',
+			'adresse'=>'required|alpha_num|min:2',
+			'raisonsocial'=>'required|alpha_num|min:2',
+			'matriculefiscale'=>'required|alpha_num|min:2',
+			'ville'=>'required|alpha_num|min:2',
+
+
 			'password'=>'required|between:6,12|confirmed',
 			'password_confirmation'=>'required|between:6,12'
 		);	
@@ -71,6 +80,35 @@ class UserController extends Controller {
 			$authen->first_name = $request->input('firstname');
 			$authen->last_name = $request->input('lastname');
 			$authen->email = trim($request->input('email'));
+			$authen->tel = trim($request->input('tel'));
+			$authen->adresse = trim($request->input('adresse'));
+			$authen->raison_social = trim($request->input('raisonsocial'));
+			$authen->matricule_fiscale = trim($request->input('matriculefiscale'));
+			$authen->ville = trim($request->input('ville'));
+			
+			$authen->m_id = DB::table('tb_societes')->max('id')+1;
+			
+			
+
+			$societe = new societe();
+			
+
+			$societe->email= $request->input('email');
+			//$societe->matricule_fiscale= $request->input('matricule_fiscale');
+			$societe->adresse= $request->input('adresse');
+			
+			//$societe->raison_social= $request->input('raison_social');
+			//$societe->ville=$request->input('ville');
+			$societe->tel= $request->input('tel');
+
+
+			$societe->id = $authen->id; // Associer le nouveau modèle à l'utilisateur nouvellement créé
+
+			$societe->save();
+
+
+
+
 			$authen->activation = $code;
 			$authen->group_id = $this->config['cnf_group'];
 			$authen->password = \Hash::make($request->input('password'));
@@ -81,6 +119,13 @@ class UserController extends Controller {
 				'firstname'	=> $request->input('firstname') ,
 				'lastname'	=> $request->input('lastname') ,
 				'email'		=> $request->input('email') ,
+				'tel'		=> $request->input('tel') ,
+				'adresse'   =>$request->input('adresse') ,
+				'raisonsocial'=>$request->input('raisonsocial') ,
+				'matriculefiscale'=>$request->input('matriculefiscale') ,
+				'ville'=>$request->input('ville') ,
+
+
 				'password'	=> $request->input('password') ,
 				'code'		=> $code ,
 				'subject'	=> "[ " .$this->config['cnf_appname']." ] REGISTRATION "				
@@ -245,10 +290,17 @@ class UserController extends Controller {
 						$session = array(
 							'gid' => $row->group_id,
 							'uid' => $row->id,
+							'mid' => $row->m_id,
 							'eid' => $row->email,
 							'll' => $row->last_login,
 							'fid' =>  $row->first_name.' '. $row->last_name,
 							'username' =>  $row->username ,
+							'tel' =>  $row->tel ,
+							'adresse'=>$row->adresse,
+						    'raisonsocial'=>$row->raison_social,
+							'matriculefiscale'=>$row->matricule_fiscale,
+							'ville'=>$row->ville,
+
 							'join'	=>  $row->created_at ,
 							'level'	=> $level 
 						);
@@ -335,10 +387,17 @@ class UserController extends Controller {
                     $data = array(
                             'gid' => $row->group_id,
                             'uid' => $row->id,
+							'mid' => $row->m_id,
                             'eid' => $row->email,
                             'll' => $row->last_login,
                             'fid' =>  $row->name,
                             'uname'     => $row->username ,
+							'tel'=>$row->tel,
+							'adresse' =>$row->adresse,
+						    'raisonsocial' =>$row->raison_social,
+							'matriculefiscale' =>$row->matricule_fiscale,
+							'ville'=>$row->ville,
+
                             'logged_in' => true ,
                             'join'  =>  $row->created_at                             
                         );
@@ -398,6 +457,15 @@ class UserController extends Controller {
 		$rules = array(
 			'first_name'=>'required|alpha_num|min:2',
 			'last_name'=>'required|alpha_num|min:2',
+			'tel'=>'required|alpha_num|min:2',
+			'adresse'=>'required|alpha_num|min:2',
+			'raison_social'=>'required|alpha_num|min:2',
+			'matricule_fiscale'=>'required|alpha_num|min:2',
+			'ville'=>'required|alpha_num|min:2',
+
+
+
+
 			);	
 			
 		if($request->input('email') != \Session::get('eid'))
@@ -433,6 +501,18 @@ class UserController extends Controller {
 			$user->first_name 	= $request->input('first_name');
 			$user->last_name 	= $request->input('last_name');
 			$user->email 		= $request->input('email');
+			$user->tel 		= $request->input('tel');
+			$user->adresse 		= $request->input('adresse');
+			$user->raison_social = $request->input('raison_social');
+			$user->matricule_fiscale = $request->input('matricule_fiscale');
+			$user->ville 		= $request->input('ville');
+
+
+
+
+			
+
+
 			if(isset( $data['avatar']))  $user->avatar  = $newfilename; 			
 			$user->save();
 
@@ -625,10 +705,19 @@ class UserController extends Controller {
 					$session = array(
 						'gid' => $row->group_id,
 						'uid' => $row->id,
+						'mid' => $row->m_id,
+
 						'eid' => $row->email,
 						'll' => $row->last_login,
 						'fid' =>  $row->first_name.' '. $row->last_name,
 						'username' =>  $row->username ,
+						'tel'=>$row->tel,
+						'adresse'=>$row->adresse,
+				 	    'raisonsocial'=>$row->raison_social,
+						'matriculefiscale'=>$row->matricule_fiscale,
+						'ville'=>$row->ville,
+
+
 						'join'	=>  $row->created_at
 					);
 					if($this->config['cnf_front'] =='false') :

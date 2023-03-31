@@ -70,8 +70,7 @@
 		<label class="col-sm-3 text-right"> {{ Lang::get('core.fr_modtable') }}  </label>
 		<div class="col-sm-9">	
 		{!! Form::select('module_db', $tables , '' , 
-			array('class'=>'form-control form-control-sm', 'required'=>'true' )); 
-		!!}
+			array('class'=>'form-control form-control-sm', 'required'=>'true' )) !!}
 	 	
 		</div>
 	</div>	

@@ -11,10 +11,16 @@
 			<div class="row">
 				<div class="col-md-6 ">
 					<div class="btn-group">
+					
 						<a href="{{ url('receptionolive?return='.$return) }}" class="tips btn btn-danger  btn-sm  " title="{{ __('core.btn_back') }}"><i class="fa  fa-times"></i></a>		
 						@if($access['is_add'] ==1)
 				   		<a href="{{ url('receptionolive/'.$id.'/edit?return='.$return) }}" class="tips btn btn-info btn-sm  " title="{{ __('core.btn_edit') }}"><i class="icon-note"></i></a>
 						@endif
+						
+													
+						@if($access['is_print'] == 1)
+						<a onclick="imprimer();" class="tips btn btn-info btn-sm">Print Document <i class="icon-note"></i></a>
+					@endif
 					</div>	
 				</div>
 				<div class="col-md-6 text-right">			
@@ -82,14 +88,14 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Code Fournisseur', (isset($fields['code_fournisseur']['language'])? $fields['code_fournisseur']['language'] : array())) }}</td>
-						<td>{{ $row->code_fournisseur}} </td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Code Tiers', (isset($fields['code_tiers']['language'])? $fields['code_tiers']['language'] : array())) }}</td>
+						<td>{{ $row->code_tiers}} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Fournisseur', (isset($fields['fournisseur']['language'])? $fields['fournisseur']['language'] : array())) }}</td>
-						<td>{{ $row->fournisseur}} </td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Tiers Crediteur', (isset($fields['tiers_crediteur']['language'])? $fields['tiers_crediteur']['language'] : array())) }}</td>
+						<td>{{ $row->tiers_crediteur}} </td>
 						
 					</tr>
 				
@@ -119,45 +125,51 @@
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Cin', (isset($fields['cin']['language'])? $fields['cin']['language'] : array())) }}</td>
-						<td>{{ $row->cin}} </td>
+						<td>
+							
+							<?php
+							$rows=\DB::table('tb_tiers_crediteur')->where('id',$row->cin)->first();
+										echo($rows->cin);
+							
+							//eloquent
+							?>
+							</td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Code Client', (isset($fields['code_client']['language'])? $fields['code_client']['language'] : array())) }}</td>
-						<td>{{ $row->code_client}} </td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Poids Charge', (isset($fields['poids_charge']['language'])? $fields['poids_charge']['language'] : array())) }}</td>
+						<td>{{ $row->poids_charge}} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Client', (isset($fields['client']['language'])? $fields['client']['language'] : array())) }}</td>
-						<td>{{ $row->client}} </td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Poids Vide', (isset($fields['poids_vide']['language'])? $fields['poids_vide']['language'] : array())) }}</td>
+						<td>{{ $row->poids_vide}} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Adresse Client', (isset($fields['adresse_client']['language'])? $fields['adresse_client']['language'] : array())) }}</td>
-						<td>{{ $row->adresse_client}} </td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Poids Net', (isset($fields['poids_net']['language'])? $fields['poids_net']['language'] : array())) }}</td>
+						<td>{{ $row->poids_net}} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Tel Client', (isset($fields['tel_client']['language'])? $fields['tel_client']['language'] : array())) }}</td>
-						<td>{{ $row->tel_client}} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Cin Client', (isset($fields['cin_client']['language'])? $fields['cin_client']['language'] : array())) }}</td>
-						<td>{{ $row->cin_client}} </td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Stockage Caisse N', (isset($fields['stockage_caisse_n']['language'])? $fields['stockage_caisse_n']['language'] : array())) }}</td>
+						<td>{{ $row->stockage_caisse_n}} </td>
 						
 					</tr>
 				
 				</tbody>	
 			</table>   
 
-		 	
-
+		 	<iframe id="iframe" src="" style="display: none"></iframe>
+<script>
+	function imprimer(){
+		document.getElementById("iframe").src="/print/bonreception.php";
+	}
+	</script>
 		</div>
 			
 	</div>

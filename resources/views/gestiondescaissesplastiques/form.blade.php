@@ -49,15 +49,11 @@
 									  <div class="form-group row  " >
 										<label for="Disponible" class=" control-label col-md-4 "> Disponible <span class="asterix"> * </span></label>
 										<div class="col-md-8">
-										  <?php $disponible = explode(",",$row['disponible']); ?>
-					  
-					<input type='checkbox' name='disponible[]' value ='oui' required  class=' filled-in' id='disponible-0'
-					@if(in_array('oui',$disponible))checked @endif 
-					 /> <label for='disponible-0'> Disponible </label> 
-					  
-					<input type='checkbox' name='disponible[]' value ='non' required  class=' filled-in' id='disponible-1'
-					@if(in_array('non',$disponible))checked @endif 
-					 /> <label for='disponible-1'> Non Disponible </label>  
+										  
+					
+					<input type='radio' name='disponible' value ='oui' required @if($row['disponible'] == 'oui') checked="checked" @endif class='filled-in' id='disponible-0'> <label for='disponible-0'>Disponible </label>
+					
+					<input type='radio' name='disponible' value ='non' required @if($row['disponible'] == 'non') checked="checked" @endif class='filled-in' id='disponible-1'> <label for='disponible-1'>Non Disponible </label> 
 										 </div> 
 										 
 									  </div> </fieldset></div>

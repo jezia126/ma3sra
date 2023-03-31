@@ -1,9 +1,10 @@
 <?php namespace App\Http\Controllers;
 
 use App\Models\Gestiondescaissesplastiques;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
-use Validator, Input, Redirect ; 
+use Validator, Input, Redirect ;
 
 
 class GestiondescaissesplastiquesController extends Controller {
@@ -28,6 +29,20 @@ class GestiondescaissesplastiquesController extends Controller {
 		);
 		
 	}
+	
+
+	public function getcaisses(){
+		{
+			
+			$gestiondescaissesplastiques = DB::table('tb_gestion_des_caisses_plastique')->where('disponible', '=', 'oui')->get();
+			//$gestiondescaissesplastiques=Gestiondescaissesplastiques::where($disponible, "oui");
+						if(is_null($gestiondescaissesplastiques)){
+				return response()->json(['message' => 'caisse introuvable']);
+		
+				}
+				return response()->json($gestiondescaissesplastiques,200);
+		
+		}}
 
 	public function index( Request $request )
 	{
@@ -105,11 +120,13 @@ class GestiondescaissesplastiquesController extends Controller {
 		switch ($task)
 		{
 			default:
+
 				$rules = $this->validateForm();
 				$validator = Validator::make($request->all(), $rules);
 				if ($validator->passes()) 
 				{
 					$data = $this->validatePost( $request );
+					$data["m_id"]=session("mid");
 					$id = $this->model->insertRow($data , $request->input( $this->info['key']));
 					
 					/* Insert logs */

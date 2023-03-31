@@ -53,6 +53,7 @@ class IpblockedMiddleware
                 $session = array(
                     'gid'       => Auth::user()->group_id,
                     'uid'       => Auth::user()->id,
+                    'mid'       => Auth::user()->m_id,
                     'eid'       => Auth::user()->email,
                     'll'        => Auth::user()->last_login,
                     'fid'       =>  Auth::user()->first_name.' '. Auth::user()->last_name,

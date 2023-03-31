@@ -20,7 +20,7 @@ class natureolive extends Sximo  {
 
 	public static function queryWhere(  ){
 		
-		return "  WHERE tb_nature_olive.code IS NOT NULL ";
+		return "  WHERE tb_nature_olive.code IS NOT NULL AND tb_nature_olive.m_id=".session('mid');
 	}
 	
 	public static function queryGroup(){

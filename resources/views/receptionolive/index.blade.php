@@ -42,12 +42,10 @@
 							@if($access['is_csv'] ==1)
 								<li class="nav-item"><a href="{{ url( $pageModule .'/export?do=csv&return='.$return) }}" class="nav-link "> Export CSV </a></li>	
 							@endif
-							@if($access['is_pdf'] ==1)
-								<li class="nav-item"><a href="{{ url( $pageModule .'/export?do=pdf&return='.$return) }}" class="nav-link "> Export PDF </a></li>	
-							@endif
 							@if($access['is_print'] ==1)
-								<li class="nav-item"><a href="{{ url( $pageModule .'/export?do=print&return='.$return) }}" class="nav-link "> Print Document </a></li>	
-							@endif
+							<li class="nav-item"><a href="{{ url( $pageModule .'/export?do=print&return='.$return) }}" class="nav-link "> Print Document </a></li>	
+						@endif
+
 							<div class="dropdown-divider"></div>
 							<li class="nav-item"><a href="{{ url($pageModule) }}"  class="nav-link "> Clear Search </a></li>
 					          	
@@ -110,10 +108,36 @@
 							 @if($field['view'] =='1')
 							 	<?php $limited = isset($field['limited']) ? $field['limited'] :''; ?>
 							 	@if(SiteHelpers::filterColumn($limited ))
+
 							 	 <?php $addClass= ($insort ==$field['field'] ? 'class="tbl-sorting-active" ' : ''); ?>
-								 <td align="{{ $field['align'] }}" width=" {{ $field['width'] }}"  {!! $addClass !!} >					 
-								 	{!! SiteHelpers::formatRows($row->{$field['field']},$field ,$row ) !!}						 
-								 </td>
+
+
+
+								 
+								 <td align="{{ $field['align'] }}" width=" {{ $field['width'] }}"  {!! $addClass !!} >	
+									
+							<?php		if($field['field']=="cin"){
+
+										$rows=\DB::table('tb_tiers_crediteur')->where('id',$row->{$field['field']})->first();
+										echo($rows->cin);
+											
+				}else{
+
+										 ?>
+
+								 	{!! SiteHelpers::formatRows($row->{$field['field']},$field ,$row ) !!}	
+									
+									
+<?php }
+
+?>
+
+
+
+							 </td>
+
+
+
 								@endif	
 							 @endif					 
 						 @endforeach	

@@ -47,7 +47,7 @@
 	            <div class="col-6">
 			      	<div class="checkbox mb-3">		        
 				          <input type="checkbox" class="filled-in" id="remember" name="remember" value="1"  style="display: inline-block;" /> 
-				          <label for="remember" class="text-muted"> Remember me  </label>
+				          <label for="remember" class="text-muted"> Mémoriser info  </label>
 				      </div>
 				</div>  
 				<div class="col-6 text-right">
@@ -62,8 +62,9 @@
 				<div class="clr"></div>
 			</div>	
 		 	@endif	
+
 		 	<div class="text-center">
-			 	<button class="btn  btn-primary" type="submit">Sign in</button> 	
+			 	<button class="btn  btn-primary" type="submit">Se Connecter</button> 	
 			</div> 	
 
 
@@ -71,8 +72,8 @@
 
 			<div class=" pt-2 pb-2 " >					       
 					<p class="text-center text-muted ">						
-						Don't have an account yet?
-						<a href="{{ url('user/register')}}">Sign Up </a>
+						Vous n'avez pas encore de compte?
+												<a href="{{ url('user/register')}}">S'inscrire </a>
 					</p>					
 			</div>	
 			
@@ -80,7 +81,7 @@
 				<div class="form-group  ">
 					@if($socialize['google']['client_id'] !='' || $socialize['twitter']['client_id'] !='' || $socialize['facebook'] ['client_id'] !='') 
 					
-					<p class="text-muted text-center"><b> {{ Lang::get('core.loginsocial') }} </b>	  </p>
+					<p class="text-muted text-center"><b> Connectez-vous via les réseaux sociaux</b>	  </p>
 					
 					<div style="padding:15px 0; text-align: center;">
 						@if($socialize['facebook']['client_id'] !='') 

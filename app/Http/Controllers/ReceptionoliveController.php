@@ -1,9 +1,12 @@
 <?php namespace App\Http\Controllers;
 
 use App\Models\Receptionolive;
+use Illuminate\Support\Facades\View;
+use App\User ;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
-use Validator, Input, Redirect ; 
+use Validator, Input, Redirect ;
+use Sabberworm\CSS\CSSList\Document; 
 
 
 class ReceptionoliveController extends Controller {
@@ -29,6 +32,26 @@ class ReceptionoliveController extends Controller {
 		
 	}
 
+
+	public function getreceptionolive($id)
+	{
+        
+		$receptionolive=Receptionolive::find($id);
+		 	response()->json($receptionolive);
+
+	//return Ficheclient::all();
+	$receptionolive=Receptionolive::find($id);
+		if(is_null($receptionolive)){
+			return response()->json(['message' => 'client introuvable']);
+
+		}
+		return response()->json(Receptionolive::find($id),200);
+	//response()->json(Ficheclient::all(),200);*/
+
+
+	}
+		# code...
+	
 	public function index( Request $request )
 	{
 		// Make Sure users Logged 
@@ -110,6 +133,7 @@ class ReceptionoliveController extends Controller {
 				if ($validator->passes()) 
 				{
 					$data = $this->validatePost( $request );
+					$data["m_id"]=session("mid");
 					$id = $this->model->insertRow($data , $request->input( $this->info['key']));
 					
 					/* Insert logs */

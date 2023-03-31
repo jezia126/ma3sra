@@ -105,11 +105,14 @@ class GestionregionolivesController extends Controller {
 		switch ($task)
 		{
 			default:
+
 				$rules = $this->validateForm();
 				$validator = Validator::make($request->all(), $rules);
 				if ($validator->passes()) 
 				{
 					$data = $this->validatePost( $request );
+					$data["m_id"]=session("mid");
+
 					$id = $this->model->insertRow($data , $request->input( $this->info['key']));
 					
 					/* Insert logs */

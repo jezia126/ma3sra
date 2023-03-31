@@ -55,8 +55,7 @@
 
                 </a>
                 <div class="p-2 text-center" >
-                    <h3>Sign In To Admin </h3>
-                    <p class="mt-2 text-muted"  > {{ config('sximo.cnf_appdesc') }}  </p></div>
+                    <h3>S'identifier au MAASRA</h3>
                   @yield('content') 
             </div>
         </div>    

@@ -25,7 +25,7 @@
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Cin', (isset($fields['cin']['language'])? $fields['cin']['language'] : array())) }}</td>
-						<td>{{ $row->cin}} </td>
+						<td>{{ SiteHelpers::formatLookUp($row->cin,'cin','1:tb_tiers_crediteur:id:organisme') }} </td>
 						
 					</tr>
 				

@@ -5,8 +5,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class societes extends Sximo  {
 	
-	protected $table = 'societes';
+	protected $table = 'tb_societes';
 	protected $primaryKey = 'id';
+	protected $fillable = [
+       'raison_social', 'adresse','ville','tel','email','matricule_fiscale',
+    ];
 
 	public function __construct() {
 		parent::__construct();
@@ -20,7 +23,7 @@ class societes extends Sximo  {
 
 	public static function queryWhere(  ){
 		
-		return " WHERE societes.id IS NOT NULL ";
+		return " WHERE societes.id IS NOT NULL AND societes.m_id=".session('mid');
 	}
 	
 	public static function queryGroup(){

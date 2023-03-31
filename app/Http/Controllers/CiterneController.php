@@ -99,7 +99,7 @@ class CiterneController extends Controller {
 				break;		
 		}
 	}
-	function store( Request $request  )
+	function store( Request $request ,$id  )
 	{
 		$task = $request->input('action_task');
 		switch ($task)
@@ -110,6 +110,8 @@ class CiterneController extends Controller {
 				if ($validator->passes()) 
 				{
 					$data = $this->validatePost( $request );
+					$data["m_id"]=session("mid");
+
 					$id = $this->model->insertRow($data , $request->input( $this->info['key']));
 					
 					/* Insert logs */

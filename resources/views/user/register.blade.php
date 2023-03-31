@@ -30,13 +30,38 @@
 		 {!! Form::text('lastname', null, array('class'=>'form-control', 'required'=>'' ,'placeholder'=> __('core.lastname') )) !!}
 			
 		</div>	
+		<div class="col-md-6">
+			
+			{!! Form::text('raisonsocial', null, array('class'=>'form-control', 'required'=>'' ,'placeholder'=> __('core.raisonsocial') )) !!}
+			   
+		   </div>	<div class="col-md-6">
+			
+			{!! Form::text('adresse', null, array('class'=>'form-control', 'required'=>'' ,'placeholder'=> __('core.adresse') )) !!}
+			   
+		   </div>	<div class="col-md-6">
+			
+			{!! Form::text('ville', null, array('class'=>'form-control', 'required'=>'' ,'placeholder'=> __('core.ville') )) !!}
+			   
+		   </div>	<div class="col-md-6">
+			
+			{!! Form::text('tel', null, array('class'=>'form-control', 'required'=>'' ,'placeholder'=> __('core.tel') )) !!}
+			   
+		 	
 	</div>
+	<div class="col-md-6">
+			
+		{!! Form::text('matriculefiscale', null, array('class'=>'form-control', 'required'=>'' ,'placeholder'=> __('core.matriculefiscale') )) !!}
+		   
+	   </div>
 	
 	
-	<div class="form-group has-feedback">
+	
+
+		<div class="col-md-6">
 	 {!! Form::text('email', null, array('class'=>'form-control', 'required'=>'true','placeholder'=> __('core.email'))) !!}
 	</div>
-
+	
+</div>	
 	<div class="form-group has-feedback row">
 		<div class="col-md-6">
 			

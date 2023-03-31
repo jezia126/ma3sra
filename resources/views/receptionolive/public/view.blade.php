@@ -60,14 +60,14 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Code Fournisseur', (isset($fields['code_fournisseur']['language'])? $fields['code_fournisseur']['language'] : array())) }}</td>
-						<td>{{ $row->code_fournisseur}} </td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Code Tiers', (isset($fields['code_tiers']['language'])? $fields['code_tiers']['language'] : array())) }}</td>
+						<td>{{ $row->code_tiers}} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Fournisseur', (isset($fields['fournisseur']['language'])? $fields['fournisseur']['language'] : array())) }}</td>
-						<td>{{ $row->fournisseur}} </td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Tiers Crediteur', (isset($fields['tiers_crediteur']['language'])? $fields['tiers_crediteur']['language'] : array())) }}</td>
+						<td>{{ $row->tiers_crediteur}} </td>
 						
 					</tr>
 				
@@ -102,32 +102,26 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Code Client', (isset($fields['code_client']['language'])? $fields['code_client']['language'] : array())) }}</td>
-						<td>{{ $row->code_client}} </td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Poids Charge', (isset($fields['poids_charge']['language'])? $fields['poids_charge']['language'] : array())) }}</td>
+						<td>{{ $row->poids_charge}} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Client', (isset($fields['client']['language'])? $fields['client']['language'] : array())) }}</td>
-						<td>{{ $row->client}} </td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Poids Vide', (isset($fields['poids_vide']['language'])? $fields['poids_vide']['language'] : array())) }}</td>
+						<td>{{ $row->poids_vide}} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Adresse Client', (isset($fields['adresse_client']['language'])? $fields['adresse_client']['language'] : array())) }}</td>
-						<td>{{ $row->adresse_client}} </td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Poids Net', (isset($fields['poids_net']['language'])? $fields['poids_net']['language'] : array())) }}</td>
+						<td>{{ $row->poids_net}} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Tel Client', (isset($fields['tel_client']['language'])? $fields['tel_client']['language'] : array())) }}</td>
-						<td>{{ $row->tel_client}} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Cin Client', (isset($fields['cin_client']['language'])? $fields['cin_client']['language'] : array())) }}</td>
-						<td>{{ $row->cin_client}} </td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Stockage Caisse N', (isset($fields['stockage_caisse_n']['language'])? $fields['stockage_caisse_n']['language'] : array())) }}</td>
+						<td>{{ $row->stockage_caisse_n}} </td>
 						
 					</tr>
 						

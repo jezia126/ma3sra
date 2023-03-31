@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class compagne extends Sximo  {
 	
-	protected $table = 'parametrage';
+	protected $table = 'tb_compagne';
 	protected $primaryKey = 'id';
 
 	public function __construct() {
@@ -15,12 +15,12 @@ class compagne extends Sximo  {
 
 	public static function querySelect(  ){
 		
-		return "  SELECT parametrage.* FROM parametrage  ";
+		return "  SELECT tb_compagne.* FROM tb_compagne  ";
 	}	
 
 	public static function queryWhere(  ){
 		
-		return "  WHERE parametrage.id IS NOT NULL ";
+		return "  WHERE tb_compagne.id IS NOT NULL AND tb_compagne.m_id=".session('mid');
 	}
 	
 	public static function queryGroup(){

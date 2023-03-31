@@ -28,63 +28,88 @@
 									  <div class="form-group row  " >
 										<label for="Date" class=" control-label col-md-4 "> Date </label>
 										<div class="col-md-8">
-										  <input  type='text' name='date' id='date' value='{{ $row['date'] }}' 
-						     class='form-control form-control-sm ' /> 
+										  
+				
+					{!! Form::text('date', $row['date'],array('class'=>'form-control form-control-sm date')) !!} 
 										 </div> 
 										 
 									  </div> 					
 									  <div class="form-group row  " >
 										<label for="Date De Tracabilite" class=" control-label col-md-4 "> Date De Tracabilite </label>
 										<div class="col-md-8">
-										  <input  type='text' name='date_de_tracabilite' id='date_de_tracabilite' value='{{ $row['date_de_tracabilite'] }}' 
-						     class='form-control form-control-sm ' /> 
+										  
+				
+					{!! Form::text('date_de_tracabilite', $row['date_de_tracabilite'],array('class'=>'form-control form-control-sm date')) !!} 
 										 </div> 
 										 
 									  </div> 					
 									  <div class="form-group row  " >
 										<label for="Operation" class=" control-label col-md-4 "> Operation </label>
 										<div class="col-md-8">
-										  <input  type='text' name='operation' id='operation' value='{{ $row['operation'] }}' 
-						     class='form-control form-control-sm ' /> 
+										  
+					
+					<input type='radio' name='operation' value ='acquisations'  @if($row['operation'] == 'acquisations') checked="checked" @endif class='filled-in' id='operation-0'> <label for='operation-0'>Aquisations </label>
+					
+					<input type='radio' name='operation' value ='services'  @if($row['operation'] == 'services') checked="checked" @endif class='filled-in' id='operation-1'> <label for='operation-1'>Services </label> 
 										 </div> 
 										 
 									  </div> 					
 									  <div class="form-group row  " >
 										<label for="Type De Huile" class=" control-label col-md-4 "> Type De Huile </label>
 										<div class="col-md-8">
-										  <input  type='text' name='type_de_huile' id='type_de_huile' value='{{ $row['type_de_huile'] }}' 
-						     class='form-control form-control-sm ' /> 
+										  
+					
+					<input type='radio' name='type_de_huile' value ='bio'  @if($row['type_de_huile'] == 'bio') checked="checked" @endif class='filled-in' id='type_de_huile-0'> <label for='type_de_huile-0'>Bio </label>
+					
+					<input type='radio' name='type_de_huile' value ='conventionnelle'  @if($row['type_de_huile'] == 'conventionnelle') checked="checked" @endif class='filled-in' id='type_de_huile-1'> <label for='type_de_huile-1'>Conventionnelle </label> 
 										 </div> 
 										 
 									  </div> 					
 									  <div class="form-group row  " >
 										<label for="Maturite" class=" control-label col-md-4 "> Maturite </label>
 										<div class="col-md-8">
-										  <input  type='text' name='maturite' id='maturite' value='{{ $row['maturite'] }}' 
-						     class='form-control form-control-sm ' /> 
+										  
+					
+					<input type='radio' name='maturite' value ='vert'  @if($row['maturite'] == 'vert') checked="checked" @endif class='filled-in' id='maturite-0'> <label for='maturite-0'>Vert </label>
+					
+					<input type='radio' name='maturite' value ='moyen'  @if($row['maturite'] == 'moyen') checked="checked" @endif class='filled-in' id='maturite-1'> <label for='maturite-1'>Moyen </label>
+					
+					<input type='radio' name='maturite' value ='noir'  @if($row['maturite'] == 'noir') checked="checked" @endif class='filled-in' id='maturite-2'> <label for='maturite-2'>Noir </label> 
 										 </div> 
 										 
 									  </div> 					
 									  <div class="form-group row  " >
 										<label for="Etat Sanitaire Olive" class=" control-label col-md-4 "> Etat Sanitaire Olive </label>
 										<div class="col-md-8">
-										  <input  type='text' name='etat_sanitaire_olive' id='etat_sanitaire_olive' value='{{ $row['etat_sanitaire_olive'] }}' 
+										  
+					
+					<input type='radio' name='etat_sanitaire_olive' value ='bonne'  @if($row['etat_sanitaire_olive'] == 'bonne') checked="checked" @endif class='filled-in' id='etat_sanitaire_olive-0'> <label for='etat_sanitaire_olive-0'>Bonne </label>
+					
+					<input type='radio' name='etat_sanitaire_olive' value ='moyenne'  @if($row['etat_sanitaire_olive'] == 'moyenne') checked="checked" @endif class='filled-in' id='etat_sanitaire_olive-1'> <label for='etat_sanitaire_olive-1'>Moyenne </label>
+					
+					<input type='radio' name='etat_sanitaire_olive' value ='mauvaise'  @if($row['etat_sanitaire_olive'] == 'mauvaise') checked="checked" @endif class='filled-in' id='etat_sanitaire_olive-2'> <label for='etat_sanitaire_olive-2'>Mauvaise </label> 
+										 </div> 
+										 
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Code Tiers" class=" control-label col-md-4 "> Code Tiers </label>
+										<div class="col-md-8">
+										  <input  type='text' name='code_tiers' id='code_tiers' value='{{ $row['code_tiers'] }}' 
 						     class='form-control form-control-sm ' /> 
 										 </div> 
 										 
 									  </div> 					
 									  <div class="form-group row  " >
-										<label for="Code Fournisseur" class=" control-label col-md-4 "> Code Fournisseur </label>
+										<label for="Cin" class=" control-label col-md-4 "> Cin </label>
 										<div class="col-md-8">
-										  <input  type='text' name='code_fournisseur' id='code_fournisseur' value='{{ $row['code_fournisseur'] }}' 
-						     class='form-control form-control-sm ' /> 
+										  <select name='cin' rows='5' id='cin' class='select2 '   ></select> 
 										 </div> 
 										 
 									  </div> 					
 									  <div class="form-group row  " >
-										<label for="Fournisseur" class=" control-label col-md-4 "> Fournisseur </label>
+										<label for="Tiers Crediteur" class=" control-label col-md-4 "> Tiers Crediteur </label>
 										<div class="col-md-8">
-										  <input  type='text' name='fournisseur' id='fournisseur' value='{{ $row['fournisseur'] }}' 
+										  <input  type='text' name='tiers_crediteur' id='tiers_crediteur' value='{{ $row['tiers_crediteur'] }}' 
 						     class='form-control form-control-sm ' /> 
 										 </div> 
 										 
@@ -122,49 +147,33 @@
 										 
 									  </div> 					
 									  <div class="form-group row  " >
-										<label for="Cin" class=" control-label col-md-4 "> Cin </label>
+										<label for="Poids Charge" class=" control-label col-md-4 "> Poids Charge </label>
 										<div class="col-md-8">
-										  <input  type='text' name='cin' id='cin' value='{{ $row['cin'] }}' 
+										  <input  type='text' name='poids_charge' id='poids_charge' value='{{ $row['poids_charge'] }}' 
 						     class='form-control form-control-sm ' /> 
 										 </div> 
 										 
 									  </div> 					
 									  <div class="form-group row  " >
-										<label for="Code Client" class=" control-label col-md-4 "> Code Client </label>
+										<label for="Poids Vide" class=" control-label col-md-4 "> Poids Vide </label>
 										<div class="col-md-8">
-										  <input  type='text' name='code_client' id='code_client' value='{{ $row['code_client'] }}' 
+										  <input  type='text' name='poids_vide' id='poids_vide' value='{{ $row['poids_vide'] }}' 
 						     class='form-control form-control-sm ' /> 
 										 </div> 
 										 
 									  </div> 					
 									  <div class="form-group row  " >
-										<label for="Client" class=" control-label col-md-4 "> Client </label>
+										<label for="Poids Net" class=" control-label col-md-4 "> Poids Net </label>
 										<div class="col-md-8">
-										  <input  type='text' name='client' id='client' value='{{ $row['client'] }}' 
+										  <input  type='text' name='poids_net' id='poids_net' value='{{ $row['poids_net'] }}' 
 						     class='form-control form-control-sm ' /> 
 										 </div> 
 										 
 									  </div> 					
 									  <div class="form-group row  " >
-										<label for="Adresse Client" class=" control-label col-md-4 "> Adresse Client </label>
+										<label for="Stockage Caisse N" class=" control-label col-md-4 "> Stockage Caisse N </label>
 										<div class="col-md-8">
-										  <input  type='text' name='adresse_client' id='adresse_client' value='{{ $row['adresse_client'] }}' 
-						     class='form-control form-control-sm ' /> 
-										 </div> 
-										 
-									  </div> 					
-									  <div class="form-group row  " >
-										<label for="Tel Client" class=" control-label col-md-4 "> Tel Client </label>
-										<div class="col-md-8">
-										  <input  type='text' name='tel_client' id='tel_client' value='{{ $row['tel_client'] }}' 
-						     class='form-control form-control-sm ' /> 
-										 </div> 
-										 
-									  </div> 					
-									  <div class="form-group row  " >
-										<label for="Cin Client" class=" control-label col-md-4 "> Cin Client </label>
-										<div class="col-md-8">
-										  <input  type='text' name='cin_client' id='cin_client' value='{{ $row['cin_client'] }}' 
+										  <input  type='text' name='stockage_caisse_n' id='stockage_caisse_n' value='{{ $row['stockage_caisse_n'] }}' 
 						     class='form-control form-control-sm ' /> 
 										 </div> 
 										 
@@ -187,6 +196,9 @@
    <script type="text/javascript">
 	$(document).ready(function() { 
 		
+		
+		$("#cin").jCombo("{!! url('receptionolive/comboselect?filter=tb_tiers_crediteur:cin:cin') !!}",
+		{  selected_value : '{{ $row["cin"] }}' });
 		 
 
 		$('.removeCurrentFiles').on('click',function(){

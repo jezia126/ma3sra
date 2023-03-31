@@ -119,21 +119,21 @@
 						 @endforeach	
 						 <td>
 
-						 <div >
-								  @if($access['is_detail'] ==1)
-									<a href="{{ url('compagne/'.$row->id.'?return='.$return)}}"  title="{{ __('core.btn_view') }}"> <i class="fa fa-info"></i> </a>
+							 	<div class="dropdown">
+								  <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><i class="fas fa-tasks"></i>  </button>
+								  <ul class="dropdown-menu">
+								 	@if($access['is_detail'] ==1)
+									<li class="nav-item"><a href="{{ url('compagne/'.$row->id.'?return='.$return)}}" class="nav-link tips" title="{{ __('core.btn_view') }}"> {{ __('core.btn_view') }} </a></li>
 									@endif
-								 
-								 	
 									@if($access['is_edit'] ==1)
-									<a  href="{{ url('compagne/'.$row->id.'/edit?return='.$return) }}" title="{{ __('core.btn_edit') }}">edit
-</a>
+									<li class="nav-item"><a  href="{{ url('compagne/'.$row->id.'/edit?return='.$return) }}" class="nav-link  tips" title="{{ __('core.btn_edit') }}"> {{ __('core.btn_edit') }} </a></li>
 									@endif
+									<div class="dropdown-divider"></div>
 									@if($access['is_remove'] ==1)
-										<a href="javascript://ajax"  onclick="SximoDelete();" title="{{ __('core.btn_remove') }}">
-										<i  class="fa fa-trash"></i> </a>
+										<li class="nav-item"><a href="javascript://ajax"  onclick="SximoDelete();" class="nav-link  tips" title="{{ __('core.btn_remove') }}">
+										Remove Selected </a></li>
 									@endif 
-								  
+								  </ul>
 								</div>
 
 							</td>		 

@@ -18,6 +18,12 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('M Id', (isset($fields['m_id']['language'])? $fields['m_id']['language'] : array())) }}</td>
+						<td>{{ $row->m_id}} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Note', (isset($fields['note']['language'])? $fields['note']['language'] : array())) }}</td>
 						<td>{{ $row->note}} </td>
 						

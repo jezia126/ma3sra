@@ -15,6 +15,7 @@
 						@if($access['is_add'] ==1)
 				   		<a href="{{ url('gestiondescaissesplastiques/'.$id.'/edit?return='.$return) }}" class="tips btn btn-info btn-sm  " title="{{ __('core.btn_edit') }}"><i class="icon-note"></i></a>
 						@endif
+
 					</div>	
 				</div>
 				<div class="col-md-6 text-right">			
@@ -40,6 +41,12 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('M Id', (isset($fields['m_id']['language'])? $fields['m_id']['language'] : array())) }}</td>
+						<td>{{ $row->m_id}} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Note', (isset($fields['note']['language'])? $fields['note']['language'] : array())) }}</td>
 						<td>{{ $row->note}} </td>
 						
@@ -47,7 +54,7 @@
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Disponible', (isset($fields['disponible']['language'])? $fields['disponible']['language'] : array())) }}</td>
-						<td>{{ $row->disponible}} </td>
+						<td>{{$row->disponible}} </td>
 						
 					</tr>
 				

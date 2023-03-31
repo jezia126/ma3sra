@@ -49,7 +49,44 @@
 		<input name="last_name" type="text" id="last_name" class="form-control form-control-sm" required value="{{ $info->last_name }}" />  
 		 </div> 
 	  </div>    
+	  <div class="form-group row" >
+		<label for="Raison Social" class=" control-label col-md-4 "> {{ Lang::get('core.raisonsocial') }}</label>
+		<div class="col-md-8">
+		  <input  type='text' name='raison_social' id='raison_social'class='form-control form-control-sm '  required value="{{ $info->raison_social }}" /> 
+		 </div> 
+		 
+	  </div> 
+	  <div class="form-group row" >
+		<label for="Adresse" class=" control-label col-md-4 "> {{ Lang::get('core.adresse') }} </label>
+		<div class="col-md-8">
+		  <input  type='text' name='adresse' id='adresse'class='form-control form-control-sm '  required value="{{ $info->adresse }}"/> 
+		 </div> 
+		 
+	  </div>
+	  <div class="form-group row" >
+		<label for="Ville" class=" control-label col-md-4 "> {{ Lang::get('core.ville') }} </label>
+		<div class="col-md-8">
+		  <input  type='text' name='ville' id='ville' class='form-control form-control-sm ' required value="{{ $info->ville }}"  /> 
+		 </div> 
+		 
+	  </div> 
 
+	  <div class="form-group row" >
+		<label for="Tel" class=" control-label col-md-4 "> {{ Lang::get('core.tel') }} </label>
+		<div class="col-md-8">
+		  <input  type='text' name='tel' id='tel' class='form-control form-control-sm '  required value="{{ $info->tel }}"/> 
+		 </div> 
+		 
+	  </div> 
+	
+	  <div class="form-group row " >
+		<label for="Matricule Fiscale" class=" control-label col-md-4 "> {{ Lang::get('core.matriculefiscale') }} </label>
+		<div class="col-md-8">
+		  <input  type='text' name='matricule_fiscale' id='matricule_fiscale' required value="{{ $info->matricule_fiscale }}"
+class='form-control form-control-sm ' /> 
+		 </div> 
+		 
+	  </div> 	
 	  <div class="form-group row  " >
 		<label for="ipt" class=" control-label col-md-4 text-right"> Avatar </label>
 		<div class="col-md-8">

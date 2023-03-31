@@ -16,7 +16,15 @@
 
 <div class="col-md-12">
 						<fieldset><legend> gestion region olives</legend>
-				{!! Form::hidden('code', $row['code']) !!}					
+									
+									  <div class="form-group row  " >
+										<label for="Id" class=" control-label col-md-4 "> Id </label>
+										<div class="col-md-8">
+										  <textarea name='id' rows='5' id='id' class='form-control form-control-sm '  
+				           >{{ $row['id'] }}</textarea> 
+										 </div> 
+										 
+									  </div> {!! Form::hidden('code', $row['code']) !!}					
 									  <div class="form-group row  " >
 										<label for="Postale" class=" control-label col-md-4 "> Postale <span class="asterix"> * </span></label>
 										<div class="col-md-8">

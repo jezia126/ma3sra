@@ -205,7 +205,7 @@
 		var btn2=document.getElementById("personne_physique-1");
 
 		if(check.checked){
-			btn1.disabled="true";
+			//btn1.disabled="true";
 			btn2.disabled="true";
 
 		}else if(check1.checked) {
@@ -214,5 +214,6 @@
 
 		}
 	}
+
 	</script>		 
 @stop

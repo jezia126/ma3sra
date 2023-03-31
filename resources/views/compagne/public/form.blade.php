@@ -15,13 +15,12 @@
 
 
 <div class="col-md-12">
-						<fieldset><legend> parametragee</legend>
+						<fieldset><legend> compagne</legend>
 									
 									  <div class="form-group row  " >
 										<label for="Id Société" class=" control-label col-md-4 "> Id Société </label>
 										<div class="col-md-8">
-										  <input  type='text' name='id_société' id='id_société' value='{{ $row['id_société'] }}' 
-						     class='form-control form-control-sm ' /> 
+										  <select name='id_société' rows='5' id='id_société' class='select2 '   ></select> 
 										 </div> 
 										 
 									  </div> 					
@@ -155,6 +154,9 @@
    <script type="text/javascript">
 	$(document).ready(function() { 
 		
+		
+		$("#id_société").jCombo("{!! url('compagne/comboselect?filter=tb_societes:id:id') !!}",
+		{  selected_value : '{{ $row["id_société"] }}' });
 		 
 
 		$('.removeCurrentFiles').on('click',function(){

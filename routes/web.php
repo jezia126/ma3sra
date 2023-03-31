@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,6 +51,7 @@ Route::get('posts/category/{any}','HomeController@posts');
 Route::get('posts/read/{any}','HomeController@read');
 Route::post('posts/comment','HomeController@comment');
 Route::get('posts/remove/{id?}/{id2?}/{id3?}','HomeController@remove');
+
 // Start Routes for Notification 
 Route::resource('notification','NotificationController');
 Route::get('home/load','HomeController@getLoad');
@@ -89,9 +89,9 @@ Route::group(['namespace' => 'Sximo','middleware' => 'auth'], function () {
 		include('sximo.php');
 		
 });
-
 Route::group(['namespace' => 'Core','middleware' => 'auth'], function () {
 
 	include('core.php');
 
 });
+

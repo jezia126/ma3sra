@@ -34,8 +34,20 @@
 				<tbody>	
 			
 					<tr>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Id', (isset($fields['id']['language'])? $fields['id']['language'] : array())) }}</td>
+						<td>{{ $row->id}} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Code', (isset($fields['code']['language'])? $fields['code']['language'] : array())) }}</td>
 						<td>{{ $row->code}} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('M Id', (isset($fields['m_id']['language'])? $fields['m_id']['language'] : array())) }}</td>
+						<td>{{ $row->m_id}} </td>
 						
 					</tr>
 				

@@ -35,8 +35,7 @@
 									  </div> 					
 									  <div class="form-group  " id="tablename" >
 										<label for="ipt" class=" control-label "> Tablename    </label>										{!! Form::select('tablename', $tables , $row['tablename'] , 
-													array('class'=>'form-control input-sm', 'required'=>'true' )); 
-												!!}					
+													array('class'=>'form-control input-sm', 'required'=>'true' ));!!}					
 									  </div> 					
 									  <div class="form-group  " id="email"  >
 										<label for="ipt" class=" control-label "> Email Address    </label>									
